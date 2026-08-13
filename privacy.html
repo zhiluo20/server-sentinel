@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ServerSentinel privacy policy.">
+  <link rel="canonical" href="https://www.mecury.co.uk/server-sentinel/privacy.html">
+  <title>Privacy Policy — ServerSentinel</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <nav class="shell" aria-label="Main navigation">
+      <a class="brand" href="index.html">SERVER SENTINEL</a>
+      <div class="nav-links">
+        <a href="privacy.html" aria-current="page">Privacy</a>
+        <a href="support.html">Support</a>
+      </div>
+    </nav>
+  </header>
+  <main class="shell">
+    <article class="document">
+      <p class="eyebrow">Legal / Privacy</p>
+      <h1>Privacy Policy</h1>
+      <p>Effective and last updated: 13 August 2026</p>
+      <div class="callout"><p>ServerSentinel has no developer-operated backend, analytics, advertising, crash reporting, or tracking. The developer does not receive or access your server configuration, credentials, or monitoring content.</p></div>
+
+      <h2>1. Information we collect</h2>
+      <p>The developer does not collect, sell, share, or track personal data. ServerSentinel does not require an account. It connects only after you save a server configuration, either directly to that SSH host or to an HTTPS Agent Relay you deploy and control.</p>
+
+      <h2>2. Information stored on your device</h2>
+      <table>
+        <thead><tr><th>Data</th><th>Storage and retention</th></tr></thead>
+        <tbody>
+          <tr><td>Server configuration</td><td>Names, addresses or aliases, ports, usernames, connection method, pinned host public keys, role notes, polling intervals, and optional Agent Relay configuration are stored in local app preferences until you delete the server or all local data.</td></tr>
+          <tr><td>Credentials</td><td>Passwords, SSH private keys, and Agent read tokens are stored in the device Keychain, are available only while the device is unlocked, and are marked as non-migrating. They are not written into configuration files or logs.</td></tr>
+          <tr><td>Terminal history</td><td>Approximately the most recent 200 lines per server may be stored locally to restore context after restarting the app.</td></tr>
+          <tr><td>Monitoring data</td><td>Latest snapshots, up to 30 days of trends, alerts, health checks, events, and local action audits are stored in the app's Application Support container.</td></tr>
+          <tr><td>Widget data</td><td>Node name, health, CPU summary, and critical alert count may be stored in the app's shared container solely for its Widget.</td></tr>
+          <tr><td>Imported key files</td><td>Key files manually placed in the app's imported-keys folder remain on the device until credentials or all local data are deleted.</td></tr>
+        </tbody>
+      </table>
+
+      <h2>3. Network connections</h2>
+      <p>DirectSSH connects to the host and port you enter and requires a pinned host public key. If you enable Agent Relay, ServerSentinel connects over HTTPS to the relay address you enter and operate. Local-network permission may be requested when connecting to a server on your local network.</p>
+      <p>The app does not contact a developer backend and does not send telemetry, advertising data, analytics, update checks, or remote-configuration requests.</p>
+
+      <h2>4. Third-party components</h2>
+      <p>ServerSentinel uses open-source libraries including Citadel, SwiftNIO, SwiftNIO SSH, swift-crypto, and BigInt to implement SSH and cryptography. These components run locally and do not transmit information to their authors. The app contains no advertising, analytics, or behavioural tracking SDK.</p>
+
+      <h2>5. Your controls</h2>
+      <ul>
+        <li>Delete one server from Settings to remove its configuration and associated Keychain credentials.</li>
+        <li>Use Clear All Credentials to remove all ServerSentinel Keychain entries and manually imported private-key files while retaining server configuration.</li>
+        <li>Use Delete All Local Data to remove server configuration, monitoring and terminal history, imported keys, Widget state, and ServerSentinel Keychain items.</li>
+      </ul>
+      <p>Uninstalling removes the app container, but the operating system may retain Keychain items. Use Delete All Local Data before uninstalling if you want those items removed.</p>
+
+      <h2>6. Children's privacy</h2>
+      <p>ServerSentinel is intended for server administrators and is not directed to children under 13. It does not knowingly collect information from children—or from any user.</p>
+
+      <h2>7. Policy changes</h2>
+      <p>Changes to this policy will update the date on this page and ship with an app update. Material changes to data handling will also be disclosed in the release notes.</p>
+
+      <h2>8. Contact</h2>
+      <p>Questions about this policy or ServerSentinel's data handling can be sent to <a href="mailto:aroluo@icloud.com">aroluo@icloud.com</a>.</p>
+
+      <h2>中文摘要</h2>
+      <p>ServerSentinel 没有开发者运营的后端、分析、广告、崩溃上报或追踪功能。服务器配置、凭据、终端与监控数据均保存在用户设备上；App 仅连接用户主动配置的 SSH 主机或自部署的 HTTPS Agent Relay。用户可在设置中删除单台服务器、清除凭据或彻底删除全部本地数据。如有疑问，请联系 <a href="mailto:aroluo@icloud.com">aroluo@icloud.com</a>。</p>
+    </article>
+  </main>
+  <footer><div class="shell">© 2026 ServerSentinel · <a href="support.html">Support</a></div></footer>
+</body>
+</html>

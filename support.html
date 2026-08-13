@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ServerSentinel support, contact information, and common questions.">
+  <link rel="canonical" href="https://www.mecury.co.uk/server-sentinel/support.html">
+  <title>Support — ServerSentinel</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <nav class="shell" aria-label="Main navigation">
+      <a class="brand" href="index.html">SERVER SENTINEL</a>
+      <div class="nav-links">
+        <a href="privacy.html">Privacy</a>
+        <a href="support.html" aria-current="page">Support</a>
+      </div>
+    </nav>
+  </header>
+  <main class="shell">
+    <article class="document">
+      <p class="eyebrow">Product / Support</p>
+      <h1>How can we help?</h1>
+      <p class="lede">For app issues, general feedback, or feature requests, email the developer. Include the app version, system version, device model, and number of configured servers—but never send a password, private key, token, or server address.</p>
+      <div class="actions">
+        <a class="button" href="mailto:aroluo@icloud.com?subject=ServerSentinel%20Support">Email support</a>
+        <a class="button secondary" href="privacy.html">Privacy policy</a>
+      </div>
+
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:aroluo@icloud.com">aroluo@icloud.com</a></p>
+      <p>Support is provided in English and Simplified Chinese. Please allow up to three business days for a response.</p>
+
+      <h2>Purchase</h2>
+      <p>ServerSentinel is a <strong>$2.99 USD one-time purchase</strong>. There is no subscription. The displayed price may be the locally equivalent App Store price and may include applicable taxes.</p>
+
+      <h2>Frequently asked questions</h2>
+      <details><summary>What if ServerSentinel says no private key is imported?</summary><p>Open Settings, select the server, and import the key under Authentication. The key is stored in the device Keychain. Password authentication is also available.</p></details>
+      <details><summary>Are passphrase-protected private keys supported?</summary><p>Not currently. The app supports unencrypted OpenSSH Ed25519 and ECDSA keys (P-256/384/521), plus PKCS#8 PEM ECDSA. Convert unsupported keys with ssh-keygen or use password authentication.</p></details>
+      <details><summary>Why is SystemSSH unavailable on iPhone?</summary><p>SystemSSH invokes the macOS system SSH executable. On iPhone and iPad, use DirectSSH, enter an IP address or domain directly, and provide the server's OpenSSH host public key.</p></details>
+      <details><summary>Does monitoring continue in the background?</summary><p>No. Polling runs while the app is in the foreground. Backgrounding stops polling and closes terminal sessions; returning to the foreground starts a fresh collection.</p></details>
+      <details><summary>Where are credentials stored?</summary><p>Passwords, private keys, and Agent read tokens are stored in the local device Keychain. ServerSentinel has no developer backend and does not upload them.</p></details>
+
+      <h2>中文支持</h2>
+      <p>如遇到连接、私钥、监控或终端问题，请发送邮件至 <a href="mailto:aroluo@icloud.com">aroluo@icloud.com</a>。可附上 App 版本、系统版本、机型与服务器数量，但请勿发送密码、私钥、令牌、主机地址或用户名。通常会在三个工作日内回复。</p>
+    </article>
+  </main>
+  <footer><div class="shell">© 2026 ServerSentinel · <a href="privacy.html">Privacy</a></div></footer>
+</body>
+</html>
