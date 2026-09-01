@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Learn how to monitor a Linux server from a Mac over SSH: verify the host key, check CPU, memory, disk, network, uptime, and processes, and choose a secure monitoring workflow.">
+  <meta name="theme-color" content="#090909">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="How to Monitor a Linux Server from Mac over SSH">
+  <meta property="og:description" content="A practical, secure workflow for Linux server health checks from macOS.">
+  <meta property="og:url" content="https://www.mecury.co.uk/server-sentinel/guides/monitor-linux-server-from-mac.html">
+  <meta property="og:image" content="https://www.mecury.co.uk/server-sentinel/assets/server-sentinel-dashboard.jpg">
+  <meta property="article:published_time" content="2026-09-01">
+  <meta property="article:modified_time" content="2026-09-01">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://www.mecury.co.uk/server-sentinel/guides/monitor-linux-server-from-mac.html">
+  <link rel="icon" href="../assets/app-icon.png">
+  <title>How to Monitor a Linux Server from Mac over SSH</title>
+  <link rel="stylesheet" href="../styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "How to Monitor a Linux Server from Mac over SSH",
+        "description": "A practical, secure workflow for checking Linux server health from macOS over SSH.",
+        "datePublished": "2026-09-01",
+        "dateModified": "2026-09-01",
+        "mainEntityOfPage": "https://www.mecury.co.uk/server-sentinel/guides/monitor-linux-server-from-mac.html",
+        "image": "https://www.mecury.co.uk/server-sentinel/assets/server-sentinel-dashboard.jpg",
+        "author": {"@type": "Person", "name": "Zhiluo"},
+        "publisher": {
+          "@type": "Organization",
+          "name": "Server Sentinel",
+          "logo": {"@type": "ImageObject", "url": "https://www.mecury.co.uk/server-sentinel/assets/app-icon.png"}
+        },
+        "about": ["Linux server monitoring", "SSH", "macOS", "server health"]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Server Sentinel", "item": "https://www.mecury.co.uk/server-sentinel/"},
+          {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://www.mecury.co.uk/server-sentinel/guides/"},
+          {"@type": "ListItem", "position": 3, "name": "Monitor a Linux server from Mac"}
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Can I monitor a Linux server from a Mac without installing an agent?",
+            "acceptedAnswer": {"@type": "Answer", "text": "Yes. Standard SSH commands can report CPU, memory, disk, uptime, and process information without installing a monitoring agent."}
+          },
+          {
+            "@type": "Question",
+            "name": "Which Linux server metrics should I check first?",
+            "acceptedAnswer": {"@type": "Answer", "text": "Start with host reachability, uptime and load, CPU use, available memory, disk capacity, network activity, and the processes using the most CPU or memory."}
+          },
+          {
+            "@type": "Question",
+            "name": "Is an SSH host key fingerprint the same as a password?",
+            "acceptedAnswer": {"@type": "Answer", "text": "No. A host key fingerprint identifies the server. Compare it with a fingerprint obtained through a trusted channel before sending credentials."}
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header>
+    <nav class="shell" aria-label="Main navigation">
+      <a class="brand" href="../index.html">SERVER SENTINEL</a>
+      <div class="nav-links">
+        <a href="index.html" aria-current="page">Guides</a>
+        <a href="../privacy.html">Privacy</a>
+        <a href="../support.html">Support</a>
+        <a class="nav-download" href="https://apps.apple.com/us/app/server-sentinel/id6801045457?mt=12">Download</a>
+      </div>
+    </nav>
+  </header>
+  <main class="shell">
+    <article class="document">
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Server Sentinel</a> / <a href="index.html">Guides</a> / Linux monitoring from Mac</nav>
+      <p class="eyebrow">Guide / SSH monitoring</p>
+      <h1>How to monitor a Linux server from Mac over SSH</h1>
+      <p class="lede">A Mac already includes an SSH client, so you can inspect a remote Linux host without installing a control panel or exposing a new web service. The important part is collecting useful signals while preserving server identity and credential security.</p>
+      <div class="article-meta">
+        <span class="pill">Updated 1 September 2026</span>
+        <span class="pill">8 minute read</span>
+        <span class="pill">Linux · macOS · SSH</span>
+      </div>
+
+      <div class="article-layout">
+        <div class="article-body">
+          <h2 id="before">Before you connect</h2>
+          <p>Prepare the server address, SSH port, username, authentication method, and the server's trusted host-key fingerprint. Use a dedicated, least-privileged account when monitoring does not require administrative changes.</p>
+          <ul>
+            <li>Use a private key or strong password created for this server.</li>
+            <li>Obtain the SSH host-key fingerprint from the server console, hosting panel, or administrator.</li>
+            <li>Keep private keys out of notes, screenshots, tickets, and chat messages.</li>
+            <li>Do not use <code>root</code> when read-only system commands are sufficient.</li>
+          </ul>
+
+          <h2 id="verify">1. Verify the server identity</h2>
+          <p>SSH protects the connection only when you know which server key you are trusting. You can inspect the presented key before authenticating:</p>
+          <pre><code>ssh-keyscan -p 22 server.example.com 2&gt;/dev/null | ssh-keygen -lf -</code></pre>
+          <p><code>ssh-keyscan</code> retrieves the key that the network presents; it does not prove that the key is genuine. Compare the resulting fingerprint with one obtained independently from the server console or administrator. Stop if the values do not match.</p>
+
+          <h2 id="connect">2. Connect from macOS</h2>
+          <p>Open Terminal on the Mac and connect with the expected username and port:</p>
+          <pre><code>ssh -p 22 user@server.example.com</code></pre>
+          <p>On the first trusted connection, macOS records the host identity in <code>~/.ssh/known_hosts</code>. A later host-key warning may indicate a legitimate server rebuild, but it can also indicate that traffic is reaching a different machine. Verify the new fingerprint before accepting it.</p>
+
+          <h2 id="metrics">3. Collect a useful health baseline</h2>
+          <p>A quick server check should cover several independent signals. One healthy number cannot rule out a memory leak, full filesystem, overloaded process, or failing connection.</p>
+
+          <h3>Uptime and load</h3>
+          <pre><code>uptime
+cat /proc/loadavg</code></pre>
+          <p>Compare load averages with the number of logical CPU cores. A sustained load far above the available cores usually means work is waiting for CPU or uninterruptible I/O.</p>
+
+          <h3>CPU and memory</h3>
+          <pre><code>nproc
+free -h
+ps -eo pid,user,%cpu,%mem,etime,comm --sort=-%cpu | head -n 16</code></pre>
+          <p>Linux intentionally uses spare memory for filesystem cache, so “free” memory alone is misleading. Focus on the <em>available</em> value, swap pressure, and whether the same processes keep growing.</p>
+
+          <h3>Disk capacity</h3>
+          <pre><code>df -hP</code></pre>
+          <p>Check every relevant mount point, not only <code>/</code>. Database, container, backup, and log volumes often fill independently. Investigate a filesystem before it reaches the point where services cannot create temporary files or write logs.</p>
+
+          <h3>Network interfaces</h3>
+          <pre><code>ip -s link</code></pre>
+          <p>Interface counters help distinguish application slowness from packet errors, drops, or an inactive interface. Compare rates over time rather than treating a single cumulative counter as current traffic.</p>
+
+          <h2 id="dashboard">4. Decide when a dashboard is useful</h2>
+          <p>Manual SSH checks are excellent for one-off diagnosis. They become repetitive when you operate several hosts or need to compare the same metrics consistently. A native monitoring dashboard can collect the same read-only signals, preserve recent trends locally, and keep alerts, processes, and terminal access together.</p>
+          <div class="callout"><p><strong>Server Sentinel</strong> connects directly over SSH, pins host public keys, stores credentials in the device Keychain, and needs no developer cloud account. Collection runs while the app is open. <a href="https://apps.apple.com/us/app/server-sentinel/id6801045457?mt=12">View it on the Mac App Store</a>.</p></div>
+
+          <h2 id="security">5. Keep the monitoring path secure</h2>
+          <ol>
+            <li>Verify host keys through a separate trusted channel.</li>
+            <li>Prefer an unprivileged monitoring account and grant only the commands it needs.</li>
+            <li>Protect private keys with appropriate local permissions and never send them to support.</li>
+            <li>Restrict SSH exposure with a firewall, VPN, or trusted network where practical.</li>
+            <li>Remove accounts and keys when a device, administrator, or server is retired.</li>
+          </ol>
+
+          <h2 id="faq">Frequently asked questions</h2>
+          <details><summary>Can I monitor a Linux server from a Mac without installing an agent?</summary><p>Yes. Standard SSH commands can report CPU, memory, disk, uptime, and process information without installing a monitoring agent.</p></details>
+          <details><summary>Which metrics should I check first?</summary><p>Start with reachability, uptime and load, CPU use, available memory, disk capacity, network activity, and the processes using the most CPU or memory.</p></details>
+          <details><summary>Is an SSH host key fingerprint the same as a password?</summary><p>No. A host key fingerprint identifies the server. Compare it with a fingerprint obtained through a trusted channel before sending credentials.</p></details>
+        </div>
+
+        <aside class="toc" aria-label="On this page">
+          <strong>ON THIS PAGE</strong>
+          <a href="#before">Before you connect</a>
+          <a href="#verify">Verify server identity</a>
+          <a href="#connect">Connect from macOS</a>
+          <a href="#metrics">Collect metrics</a>
+          <a href="#dashboard">When to use a dashboard</a>
+          <a href="#security">Secure the path</a>
+          <a href="#faq">FAQ</a>
+        </aside>
+      </div>
+    </article>
+  </main>
+  <footer><div class="shell">© 2026 Server Sentinel · <a href="../privacy.html">Privacy</a> · <a href="../support.html">Support</a> · <a href="https://apps.apple.com/us/app/server-sentinel/id6801045457?mt=12">Mac App Store</a></div></footer>
+</body>
+</html>
