@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.mecury.co.uk/server-sentinel/sitemap.xml

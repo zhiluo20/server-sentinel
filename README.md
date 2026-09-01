@@ -5,5 +5,6 @@ Static product, privacy, and support pages for ServerSentinel. The site uses no 
 - Product: <https://www.mecury.co.uk/server-sentinel/>
 - Privacy: <https://www.mecury.co.uk/server-sentinel/privacy.html>
 - Support: <https://www.mecury.co.uk/server-sentinel/support.html>
+- Mac App Store: <https://apps.apple.com/us/app/server-sentinel/id6801045457?mt=12>
 
 Published with GitHub Pages from the `main` branch.

@@ -3,60 +3,211 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="ServerSentinel is a private, local-first SSH monitoring and administration app for iPhone, iPad, and Mac.">
+  <meta name="description" content="Server Sentinel is a private SSH server monitoring app for Mac, iPhone, and iPad. Monitor CPU, memory, disk, network, processes, alerts, and terminals without a developer cloud.">
+  <meta name="theme-color" content="#090909">
+  <meta name="apple-itunes-app" content="app-id=6801045457">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Server Sentinel">
+  <meta property="og:title" content="Server Sentinel for Mac — Private SSH Server Monitoring">
+  <meta property="og:description" content="Monitor Linux and macOS servers over SSH from one private, local-first dashboard.">
+  <meta property="og:url" content="https://www.mecury.co.uk/server-sentinel/">
+  <meta property="og:image" content="https://www.mecury.co.uk/server-sentinel/assets/server-sentinel-dashboard.jpg">
+  <meta property="og:image:alt" content="Server Sentinel monitoring dashboard on macOS">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Server Sentinel for Mac">
+  <meta name="twitter:description" content="Private SSH server monitoring, alerts, processes, and terminal access in a native Mac app.">
+  <meta name="twitter:image" content="https://www.mecury.co.uk/server-sentinel/assets/server-sentinel-dashboard.jpg">
   <link rel="canonical" href="https://www.mecury.co.uk/server-sentinel/">
   <link rel="icon" href="assets/app-icon.png">
-  <title>ServerSentinel - Private server monitoring</title>
+  <title>Server Sentinel for Mac — SSH Server Monitoring App</title>
   <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://www.mecury.co.uk/server-sentinel/#app",
+        "name": "Server Sentinel",
+        "url": "https://www.mecury.co.uk/server-sentinel/",
+        "downloadUrl": "https://apps.apple.com/us/app/server-sentinel/id6801045457?mt=12",
+        "sameAs": "https://apps.apple.com/us/app/server-sentinel/id6801045457?mt=12",
+        "image": "https://www.mecury.co.uk/server-sentinel/assets/app-icon.png",
+        "screenshot": "https://www.mecury.co.uk/server-sentinel/assets/server-sentinel-dashboard.jpg",
+        "applicationCategory": "DeveloperApplication",
+        "applicationSubCategory": "Server monitoring and SSH administration",
+        "operatingSystem": "macOS 14.0 or later",
+        "softwareVersion": "1.0",
+        "description": "A native, local-first SSH server monitoring and administration app for Mac, iPhone, and iPad.",
+        "inLanguage": ["en", "zh-Hans"],
+        "offers": {
+          "@type": "Offer",
+          "price": "3.99",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "url": "https://apps.apple.com/us/app/server-sentinel/id6801045457?mt=12"
+        },
+        "featureList": [
+          "Direct SSH monitoring",
+          "CPU, memory, disk, and network metrics",
+          "Process inspection and alerts",
+          "Persistent SSH terminal",
+          "Local Keychain credential storage",
+          "No account, advertising, analytics, or tracking"
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://www.mecury.co.uk/server-sentinel/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What can Server Sentinel monitor?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Server Sentinel monitors server health, CPU, memory, disk, network, load, uptime, processes, alerts, and recent trends over SSH."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does Server Sentinel require a cloud account or server agent?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No account or developer-operated cloud is required. Direct SSH works without installing an agent. An optional HTTPS Agent Relay can be self-hosted."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Where are SSH credentials stored?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Passwords, private keys, and Agent Relay tokens are stored in the local device Keychain and are not uploaded to the developer."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is Server Sentinel a subscription?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Server Sentinel is a one-time purchase. The United States App Store price is $3.99, and regional prices may vary."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <header>
     <nav class="shell" aria-label="Main navigation">
       <a class="brand" href="index.html">SERVER SENTINEL</a>
       <div class="nav-links">
+        <a href="#features">Features</a>
         <a href="privacy.html">Privacy</a>
         <a href="support.html">Support</a>
+        <a class="nav-download" href="https://apps.apple.com/us/app/server-sentinel/id6801045457?mt=12">Download</a>
       </div>
     </nav>
   </header>
-  <main class="shell">
-    <section class="hero">
+  <main>
+    <section class="hero shell">
       <div class="hero-copy">
-        <p class="eyebrow">Private server operations</p>
-        <h1>Monitor your servers. Keep control.</h1>
-        <p class="lede">Direct SSH monitoring and terminal access, with credentials kept on your device.</p>
+        <p class="eyebrow">Private SSH server monitoring for Mac</p>
+        <h1>Monitor every server from your Mac.</h1>
+        <p class="lede">Server Sentinel brings Linux and macOS health, processes, alerts, trends, and a persistent SSH terminal into one native, local-first dashboard.</p>
         <div class="actions">
-          <a class="button" href="support.html">Get support</a>
-          <a class="button secondary" href="privacy.html">Privacy policy</a>
+          <a class="button store-button" href="https://apps.apple.com/us/app/server-sentinel/id6801045457?mt=12" aria-label="Download Server Sentinel on the Mac App Store">
+            <span aria-hidden="true"></span>
+            <span><small>Download on the</small>Mac App Store</span>
+          </a>
+          <a class="button secondary" href="#features">Explore features</a>
         </div>
+        <p class="purchase-note">$3.99 USD one-time purchase · No subscription</p>
       </div>
       <div class="pixel-mark" aria-hidden="true">
-        <img src="assets/app-icon.png" alt="">
+        <img src="assets/app-icon.png" width="1024" height="1024" alt="">
       </div>
     </section>
-    <div class="status-row" aria-label="Product facts">
-      <span class="pill"><strong>$2.99 USD</strong> one-time purchase</span>
-      <span class="pill">No subscription</span>
-      <span class="pill">No advertising or analytics</span>
-    </div>
-    <div class="grid">
-      <section class="card">
-        <h2>Direct SSH</h2>
-        <p>Connect to hosts you add and pin each DirectSSH host key before monitoring begins.</p>
-      </section>
-      <section class="card">
-        <h2>Local monitoring</h2>
-        <p>Inspect health, CPU, memory, storage, processes, alerts, and 30-day trends on your device.</p>
-      </section>
-      <section class="card">
-        <h2>Terminal access</h2>
-        <p>Open persistent SSH terminals and perform deliberate, confirmed process actions.</p>
-      </section>
-    </div>
-    <div class="callout">
-      <p>Server credentials stay in the device Keychain. ServerSentinel has no developer backend and contains no tracking SDK.</p>
-    </div>
+
+    <section class="product-shot shell" aria-labelledby="dashboard-title">
+      <div class="section-heading">
+        <p class="eyebrow">Native macOS dashboard</p>
+        <h2 id="dashboard-title">Operational clarity without another cloud.</h2>
+      </div>
+      <figure class="screenshot-frame">
+        <img src="assets/server-sentinel-dashboard.jpg" width="1440" height="900" alt="Server Sentinel dashboard showing server health, CPU, memory, disk, network, processes, security audit, and terminal panels on macOS" loading="eager" fetchpriority="high">
+        <figcaption>Monitor multiple hosts, investigate issues, and open a terminal without leaving the dashboard.</figcaption>
+      </figure>
+    </section>
+
+    <section class="feature-section shell" id="features" aria-labelledby="features-title">
+      <div class="section-heading">
+        <p class="eyebrow">Server monitoring and administration</p>
+        <h2 id="features-title">The signals you need. The access you expect.</h2>
+      </div>
+      <div class="feature-grid">
+        <article class="card">
+          <span class="index">01</span>
+          <h3>Monitor Linux and Mac servers</h3>
+          <p>Track CPU, memory, disk, network, load, uptime, and host health across the servers you add.</p>
+        </article>
+        <article class="card">
+          <span class="index">02</span>
+          <h3>Find problems faster</h3>
+          <p>Inspect processes, review alerts and recent trends, and keep local operational history in one place.</p>
+        </article>
+        <article class="card">
+          <span class="index">03</span>
+          <h3>Work over direct SSH</h3>
+          <p>Use password or private-key authentication, pin host public keys, and open a persistent remote terminal.</p>
+        </article>
+        <article class="card">
+          <span class="index">04</span>
+          <h3>Keep control of your data</h3>
+          <p>No Server Sentinel account, developer backend, advertising, analytics, crash reporting, or tracking.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="privacy-band">
+      <div class="shell privacy-layout">
+        <div>
+          <p class="eyebrow">Private by design</p>
+          <h2>Your servers are not our data.</h2>
+        </div>
+        <p>Credentials stay in the device Keychain. Monitoring and terminal history stay in the local app container. Server Sentinel connects only to hosts and optional Agent Relays you configure.</p>
+      </div>
+    </section>
+
+    <section class="faq shell" id="faq" aria-labelledby="faq-title">
+      <div class="section-heading">
+        <p class="eyebrow">Frequently asked questions</p>
+        <h2 id="faq-title">Before you connect.</h2>
+      </div>
+      <details><summary>What can Server Sentinel monitor?</summary><p>Server health, CPU, memory, disk, network, load, uptime, processes, alerts, and recent trends over SSH.</p></details>
+      <details><summary>Does it require a cloud account or server agent?</summary><p>No account or developer-operated cloud is required. Direct SSH works without installing an agent. An optional HTTPS Agent Relay can be self-hosted.</p></details>
+      <details><summary>Where are SSH credentials stored?</summary><p>Passwords, private keys, and Agent Relay tokens are stored in the local device Keychain and are not uploaded to the developer.</p></details>
+      <details><summary>Is Server Sentinel a subscription?</summary><p>No. It is a one-time purchase. The United States App Store price is $3.99; regional prices may vary.</p></details>
+    </section>
+
+    <section class="download-panel shell" aria-labelledby="download-title">
+      <div>
+        <p class="eyebrow">Available now</p>
+        <h2 id="download-title">Put your servers on one screen.</h2>
+        <p>Server Sentinel is available on the Mac App Store.</p>
+      </div>
+      <a class="button store-button" href="https://apps.apple.com/us/app/server-sentinel/id6801045457?mt=12" aria-label="Download Server Sentinel on the Mac App Store">
+        <span aria-hidden="true"></span>
+        <span><small>Download on the</small>Mac App Store</span>
+      </a>
+    </section>
   </main>
-  <footer><div class="shell">© 2026 ServerSentinel | Independent software by Zhiluo</div></footer>
+  <footer>
+    <div class="shell footer-layout">
+      <span>© 2026 Server Sentinel · Independent software by Zhiluo</span>
+      <span><a href="privacy.html">Privacy</a> · <a href="support.html">Support</a> · <a href="https://apps.apple.com/us/app/server-sentinel/id6801045457?mt=12">Mac App Store</a></span>
+    </div>
+  </footer>
 </body>
 </html>
